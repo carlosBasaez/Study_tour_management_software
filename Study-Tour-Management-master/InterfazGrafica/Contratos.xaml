@@ -1,0 +1,160 @@
+﻿<Window x:Class="InterfazGrafica.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InterfazGrafica"
+        mc:Ignorable="d"
+        Title="Ejecutivo de Ventas" Height="720" Width="1280" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Background>
+        <ImageBrush ImageSource="Graphics/BG00.png"/>
+    </Window.Background>
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="513" Margin="-10,282,0,-104" VerticalAlignment="Top" Width="1274" >
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Graphics/BG01.png" Stretch="Uniform"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Grid x:Name="grdCurso" Height="517" Margin="54,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1174" Visibility="Visible">
+            <Rectangle HorizontalAlignment="Left" Height="517" Margin="0,0,0,0" VerticalAlignment="Top" Width="1174">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Graphics/BG02.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle  HorizontalAlignment="Left" Height="457" Margin="35,30,0,0" VerticalAlignment="Top" Width="1113" Grid.RowSpan="2">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Graphics/BG03.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label Content="Región" HorizontalAlignment="Left" Height="45" Margin="300,50,0,0" VerticalAlignment="Top" Width="112" FontSize="20" Foreground="White" Grid.Column="1"/>
+            <Label Content="Comuna" HorizontalAlignment="Left" Height="45" Margin="300,150,0,0" VerticalAlignment="Top" Width="112" FontSize="20" Foreground="White" Grid.Column="1"/>
+            <Label Content="Colegio" HorizontalAlignment="Left" Height="45" Margin="300,250,0,0" VerticalAlignment="Top" Width="112" FontSize="20" Foreground="White" Grid.Column="1"/>
+            <Label Content="Cursos" HorizontalAlignment="Left" Height="45" Margin="300,350,0,0" VerticalAlignment="Top" Width="112" FontSize="20" Foreground="White" Grid.Column="1"/>
+            <ComboBox x:Name="cboRegion" HorizontalAlignment="Left" Height="28" Margin="300,100,0,0" VerticalAlignment="Top" Width="244" Grid.Column="1" SelectionChanged="cboRegion_SelectionChanged"/>
+            <ComboBox x:Name="cboComuna" HorizontalAlignment="Left" Height="30" Margin="300,200,0,0" VerticalAlignment="Top" Width="244" Grid.Column="1" SelectionChanged="cboComuna_SelectionChanged"/>
+            <ComboBox x:Name="cboColegio" HorizontalAlignment="Left" Height="30" Margin="300,300,0,0" VerticalAlignment="Top" Width="244" Grid.Column="1"/>
+            <TextBox x:Name="txtCurso" HorizontalAlignment="Left" Height="34" Margin="300,400,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Grid.Column="1" MaxLength="4"/>
+            <Button Content="Avanzar" x:Name="btnConfirmarCurso"  ToolTip="Aceptar los cambios y avanzar" HorizontalAlignment="Left" Height="60" Margin="700,150,0,0" VerticalAlignment="Top" Width="200" Click="BtnConfirmarCurso_Click" Background="#FF5383C3" FontSize="20" Foreground="White"/>
+            <Button Content="Cancelar" x:Name="btnAtrasCurso" HorizontalAlignment="Left" Height="60" Margin="700,350,0,0" VerticalAlignment="Top" Width="200" Click="BtnAtrasCurso_Click" Background="#FF5383C3" FontSize="20" Foreground="White"/>
+        </Grid>
+
+        <Grid x:Name="grdAlumnos" Visibility="Collapsed">
+            <Rectangle HorizontalAlignment="Left" Height="517" Margin="54,130,-436,-227" VerticalAlignment="Top" Width="1174">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Graphics/BG02.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle HorizontalAlignment="Left" Height="462" Margin="89,162,0,0" VerticalAlignment="Top" Width="1113">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Graphics/BG03.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <DataGrid x:Name="dtgCurso" HorizontalAlignment="Left" Height="366" Margin="190,180,0,0" VerticalAlignment="Top" Width="900" IsReadOnly="True" Background="#FF89BEDD" Visibility="Visible">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding RutAlum}" Width="150" Header="Rut del Alumno"/>
+                    <DataGridTextColumn Binding="{Binding NomAlum}" Width="150" Header="Nombres del Alumno"/>
+                    <DataGridTextColumn Binding="{Binding ApeAlum}" Width="150" Header="Apellidos del Alumno"/>
+                    <DataGridTextColumn Binding="{Binding RutApo}" Width="150" Header="Rut del Apoderado"/>
+                    <DataGridTextColumn Binding="{Binding NomApo}" Width="150" Header="Nombres del Apoderado"/>
+                    <DataGridTextColumn Binding="{Binding ApeApo}" Width="150" Header="Apellidos del Apoderado"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btnCancelarAlumno" Content="Cancelar" HorizontalAlignment="Left" Height="60" Margin="190,555,0,0" VerticalAlignment="Top" Width="200" Click="BtnAtrasCurso_Click" Background="#FF5383C3" Foreground="White"/>
+            <Button x:Name="btnAtrasAlumno" Content="Atrás" HorizontalAlignment="Left" Height="60" Margin="425,555,0,0" VerticalAlignment="Top" Width="200" Click="BtnAtrasAlumno_Click" Background="#FF5383C3" Foreground="White"/>
+            <Button x:Name="btnAnadirAlumno" Content="Añadir" HorizontalAlignment="Left" Height="60" Margin="655,555,0,0" VerticalAlignment="Top" Width="200" Click="BtnAnadirAlumno_Click" Background="#FF5383C3" Foreground="White"/>
+            <Button x:Name="btnSiguienteAlumno" Content="Siguiente" HorizontalAlignment="Left" Height="60" Margin="890,555,0,0" VerticalAlignment="Top" Width="200" Click="BtnSiguienteAlumno_Click" Background="#FF5383C3" Foreground="White"/>
+            <Button x:Name="btnEliminarFila" Content="Eliminar" HorizontalAlignment="Left" Margin="1108,328,0,328.4" VerticalAlignment="Center" Width="80" Height="34" Background="#FF5383C3" Foreground="White" Click="BtnEliminarFila_Click"/>
+        </Grid>
+
+
+        <Grid x:Name="grdAñadirAlumnos" Height="517" Margin="54,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1174" Visibility="Collapsed">
+            <Rectangle  HorizontalAlignment="Left" Height="346" Margin="35,215,0,-44" VerticalAlignment="Top" Width="1112">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Graphics/BG03.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Width="400" HorizontalAlignment="Left" Margin="35,215,0,-44" Stroke="#FF99CBE5" StrokeThickness="5"/>
+            <Rectangle Width="1112" HorizontalAlignment="Left" Margin="35,215,0,-44" Stroke="#FF99CBE5" StrokeThickness="5"/>
+            <Rectangle Width="408" HorizontalAlignment="Right" Margin="0,215,27,-44" Stroke="#FF99CBE5" StrokeThickness="5"/>
+            <Label Width="300" Height="70" Margin="43,221,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Datos Alumno" FontSize="40" Foreground="White"/>
+            <Label Content="Rut" HorizontalAlignment="Left" Height="33" Margin="125,276,0,0" VerticalAlignment="Top" Width="138" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtrutALumno1" HorizontalAlignment="Left" ToolTip="Ingrese el Rut sin puntos" Height="28" Margin="125,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" MaxLength="10"/>
+            <Label Content="Nombres" HorizontalAlignment="Left" Height="33" Margin="125,341,0,0" VerticalAlignment="Top" Width="130" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtNombreAlumno1" MaxLength="100" HorizontalAlignment="Left" Height="28" Margin="125,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+            <Label HorizontalAlignment="Left" Height="37" Margin="125,402,0,0"  Content="Apellidos" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtapellidoAlumno1" MaxLength="100" HorizontalAlignment="Left" Height="28" Margin="125,439,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+
+            <Label  Width="334" Height="70" Margin="0,225,94,0" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Datos Apoderado" FontSize="40" Foreground="White"/>
+            <Label Content="Rut" HorizontalAlignment="Left" Height="33" Margin="825,276,0,0" VerticalAlignment="Top" Width="146" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtrutApoderado1" ToolTip="Ingrese el Rut sin puntos" HorizontalAlignment="Left" Height="28" Margin="825,309,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" MaxLength="10" TextChanged="TxtrutApoderado1_TextChanged"/>
+            <Label Content="Nombres" HorizontalAlignment="Left" Height="33" Margin="825,341,0,0" VerticalAlignment="Top" Width="146" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtNombreApoderado1" MaxLength="100" HorizontalAlignment="Left" Height="28" Margin="825,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205"/>
+            <Label Content="Apellidos" HorizontalAlignment="Left" Height="37" Margin="825,402,0,0" VerticalAlignment="Top" Width="205" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtApellidoApoderado1" MaxLength="100" HorizontalAlignment="Left" Height="28" Margin="825,439,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205"/>
+            <Label HorizontalAlignment="Left" Height="33" Margin="825,471,0,0"  Content="Email" VerticalAlignment="Top" Width="200" Foreground="White" FontSize="20"/>
+            <TextBox x:Name="txtEmailApoderado1" MaxLength="100" HorizontalAlignment="Left" Height="28" Margin="825,504,0,-15" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+
+            <Button x:Name="btnNuevoAlumno" Content="Aceptar" HorizontalAlignment="Left" Height="69" Margin="491,301,0,0" VerticalAlignment="Top" Width="192" FontSize="20" Background="#FF5383C3" Foreground="White" Click="BtnNuevoAlumno_Click"/>
+            <Button x:Name="btnCerrarAñadirAlumnos" Content="Cerrar" HorizontalAlignment="Left" Height="69" Margin="491,456,0,-8" VerticalAlignment="Top" Width="192" FontSize="20" Background="#FF5383C3" Foreground="White" Click="BtnCerrarAñadirAlumnos_Click"/>
+
+        </Grid>
+        <Grid x:Name="grdRegContrato"  Height="517" Margin="54,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="1174" Visibility="Collapsed">
+            <Rectangle HorizontalAlignment="Left" Height="517" Margin="0,0,0,0" VerticalAlignment="Top" Width="1174">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Graphics/BG02.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle  HorizontalAlignment="Left" Height="457" Margin="35,30,0,0" VerticalAlignment="Top" Width="1112">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Graphics/BG03.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label Content="Monto Objetivo:" HorizontalAlignment="Left" Height="31" Margin="100,124,0,0" VerticalAlignment="Top" Width="150" Foreground="White" FontSize="20" FontFamily="Myriad Pro"/>
+            <TextBox HorizontalAlignment="Left" Height="24" Margin="256,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="186" Name="montotxt"/>
+            <Label Content="Fecha Creación:" HorizontalAlignment="Left" Height="36" Margin="104,174,0,0" VerticalAlignment="Top" Width="152" Foreground="White" FontSize="20" FontFamily="Myriad Pro"/>
+            <Label Content="Plan Viaje:" HorizontalAlignment="Left" Height="37" Margin="602,124,0,0" VerticalAlignment="Top" Width="124" Foreground="White" FontSize="20" FontFamily="Myriad Pro"/>
+            <ComboBox HorizontalAlignment="Left" Height="24" Margin="730,131,0,0" VerticalAlignment="Top" Width="182" Name="id_plan_cbo"/>
+            <TextBox Name="observaciones_txt" MaxLength="1000" HorizontalAlignment="Left" Height="165" Margin="104,259,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="960" BorderBrush="{x:Null}" Foreground="Black" SelectionBrush="#FF008AA0"/>
+            <Label Content="Registrar Contrato" HorizontalAlignment="Left" Margin="52,42,0,0" VerticalAlignment="Top" Foreground="White" FontSize="36"/>
+            <Label Content="Observaciones:" HorizontalAlignment="Left" Height="36" Margin="100,224,0,0" VerticalAlignment="Top" Width="152" Foreground="White" FontSize="20" FontFamily="Myriad Pro"/>
+            <Button Content="Aceptar" HorizontalAlignment="Left" Margin="942,439,0,0" VerticalAlignment="Top" Width="122" Height="36" Background="#FF5383C3" BorderBrush="{x:Null}" Foreground="White" FontFamily="Myriad Pro" FontSize="14" Click="Button_Click_2"/>
+            <Button Content="Cancelar" HorizontalAlignment="Left" Margin="794,439,0,0" VerticalAlignment="Top" Width="122" Height="36" Background="#FF5383C3" BorderBrush="{x:Null}" Foreground="White" FontFamily="Myriad Pro" FontSize="14" Click="BtnAtrasCurso_Click"/>
+            <Button Content="Atrás" x:Name="btnAtrasContra" Click="BtnAtrasContra_Click" HorizontalAlignment="Left" Margin="104,439,0,0" VerticalAlignment="Top" Width="122" Height="36" Background="#FF5383C3" BorderBrush="{x:Null}" Foreground="White" FontFamily="Myriad Pro" FontSize="14"/>
+            <Button Content="Representante" x:Name="btnMostrarRepre" Click="BtnMostrarRepre_Click" HorizontalAlignment="Left" Margin="942,203,0,0" VerticalAlignment="Top" Width="122" Height="36" Background="#FF5383C3" BorderBrush="{x:Null}" Foreground="White" FontFamily="Myriad Pro" FontSize="14"/>
+            <DatePicker Name="fecha_creacion_date" HorizontalAlignment="Left" Margin="256,178,0,0" VerticalAlignment="Top" Width="186"/>
+            <Label Content="Fecha Viaje:" HorizontalAlignment="Left" Height="36" Margin="608,174,0,0" VerticalAlignment="Top" Width="118" Foreground="White" FontSize="20" RenderTransformOrigin="0.481,0.385" FontFamily="Myriad Pro"/>
+            <DatePicker Name="fecha_viaje_cbo" HorizontalAlignment="Left" Height="24" Margin="730,178,0,0" VerticalAlignment="Top" Width="186" RenderTransformOrigin="0.421,1.107" BorderBrush="{x:Null}"/>
+
+        </Grid>
+        <Grid Width="400" Height="200" x:Name="grdBusquedaRepr" Visibility="Collapsed">
+            <Rectangle  HorizontalAlignment="Left" Height="200" Margin="0,0,0,0" VerticalAlignment="Top" Width="400">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Graphics/BG03.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Label Content="Rut del Representante" Margin="100,0" Width="200" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Foreground="White"/>
+            <TextBox Width="200" Height="30" x:Name="txtRutRepresentante" ToolTip="Ingrese el Rut sin puntos" MaxLength="10" Margin="100,35,100,135"/>
+            <Label Content="Email del Representante" Margin="100,70,100,0" Width="200" Height="40" HorizontalAlignment="Center" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Foreground="White"/>
+            <TextBox Width="200" Height="30" x:Name="txtEmailRepresentante" Margin="100,110,100,60" MaxLength="100"/>
+            <Button x:Name="btnCerrarRepre" Margin="10,158,308,0" Content="Cancelar" Background="#FF5383C3" Foreground="White" Height="32" VerticalAlignment="Top" Click="BtnCerrarRepre_Click"/>
+            <Button x:Name="btnValidarRepre" Margin="308,158,10,10" Content="Aceptar" Background="#FF5383C3" Foreground="White" Click="BtnValidarRepre_Click" RenderTransformOrigin="0.502,0.5"/>
+
+        </Grid>
+        <Rectangle HorizontalAlignment="Left" Height="103" Margin="54,9,0,0" VerticalAlignment="Top" Width="112">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Graphics/logo.png" Stretch="Uniform"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Height="89" Margin="934,19,-240,0" VerticalAlignment="Top" Width="98">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="Graphics/Cutters/Ico.png" Stretch="Uniform"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1037,71,-343,0" VerticalAlignment="Top" Width="98" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="31" Click="Button_Click_3">
+            <Button.Background>
+                <ImageBrush ImageSource="Graphics/Buttons/logout.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="lblUsu" HorizontalAlignment="Left" Margin="1036,29,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontSize="20" Width="192" Height="42"/>
+    </Grid>
+</Window>

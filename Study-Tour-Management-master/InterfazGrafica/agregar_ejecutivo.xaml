@@ -1,0 +1,41 @@
+﻿<Window x:Class="InterfazGrafica.agregar_ejecutivo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:InterfazGrafica"
+        mc:Ignorable="d"
+        Title="agregar_ejecutivo" Height="720" Width="1280">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="475*"/>
+            <RowDefinition Height="214*"/>
+        </Grid.RowDefinitions>
+        <Image HorizontalAlignment="Left" Height="689" VerticalAlignment="Top" Width="1272" Stretch="Fill" Source="Graphics/BG00.png" Grid.RowSpan="2"/>
+        <Image HorizontalAlignment="Left" Height="349" Grid.RowSpan="2" VerticalAlignment="Top" Width="1272" Source="Graphics/BG01.png" Stretch="Fill" Margin="0,340,0,0"/>
+        <Image HorizontalAlignment="Left" Height="448" Margin="108,155,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="1058" Stretch="Fill" Source="Graphics/BG03.png"/>
+        <Image HorizontalAlignment="Left" Height="388" Margin="148,193,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="976" Stretch="Fill" Source="Graphics/BG02.png"/>
+        <TextBox Name="txt_rut_usuario" MaxLength="10" HorizontalAlignment="Left" Height="39" Margin="382,221,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontSize="18" TextChanged="txt_rut_usuario_TextChanged"/>
+        <Label Content="Rut usuario" HorizontalAlignment="Left" Margin="214,218,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White"/>
+        <Label Content="Nombres" HorizontalAlignment="Left" Margin="214,436,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White" Grid.RowSpan="2" Width="130"/>
+        <Label Content="Contraseña" HorizontalAlignment="Left" Margin="214,364,0,69" FontSize="24" Foreground="White"/>
+        <Label Content="Email" HorizontalAlignment="Left" Margin="214,293,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White"/>
+        <Label Content="Apellidos" HorizontalAlignment="Left" Margin="214,34,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White" Grid.Row="1"/>
+        <TextBox Name="txt_email" MaxLength="100" HorizontalAlignment="Left" Height="39" Margin="382,293,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontSize="18"/>
+        <TextBox Name="txt_contraseña" MaxLength="100" HorizontalAlignment="Left" Height="39" Margin="382,367,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontSize="18"/>
+        <TextBox Name="txt_nombre" MaxLength="100" HorizontalAlignment="Left" Height="39" Margin="382,436,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" FontSize="18"/>
+        <TextBox Name="txt_apellido" MaxLength="100" HorizontalAlignment="Left" Height="39" Margin="382,34,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="296" Grid.Row="1" FontSize="18"/>
+        <Button Content="Aceptar" HorizontalAlignment="Left" Margin="900,285,0,0" VerticalAlignment="Top" Width="153" Height="47" FontSize="22" Click="Button_Click_2" Background="#FF5383C3" Foreground="White"/>
+        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="900,419,0,0" VerticalAlignment="Top" Width="153" Height="46" FontSize="22" Click="Button_Click_1" Background="#FF5383C3" Foreground="White"/>
+        <Image HorizontalAlignment="Left" Height="140" Margin="42,10,0,0" VerticalAlignment="Top" Width="146" Stretch="Fill" Source="Graphics/logo.png"/>
+        <Image HorizontalAlignment="Left" Height="88" Margin="924,36,0,0" VerticalAlignment="Top" Width="104" Stretch="Fill" Source="Graphics/Cutters/Ico.png"/>
+        <Label x:Name="lblUsuario" Content="123-K" HorizontalAlignment="Left" Margin="1046,36,0,0" VerticalAlignment="Top" Background="{x:Null}" Foreground="White" FontSize="20" Height="37" Width="207"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="1046,93,0,0" VerticalAlignment="Top" Width="98" BorderBrush="{x:Null}" Foreground="{x:Null}" Height="31" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Graphics/Buttons/logout.png" Stretch="Uniform"/>
+            </Button.Background>
+        </Button>
+
+
+    </Grid>
+</Window>
